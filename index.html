@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regalo al Nacer — Tu Mapa Energético</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============================================================
+     PANTALLA — BIENVENIDA (fuera del menú, siempre primero)
+     ============================================================ -->
+<section id="pantalla-bienvenida" class="pantalla">
+  <div class="hero-home">
+    <img src="images/logo-bebe.webp" alt="Bebé envuelto en un Mapa Energético de luz y cosmos" class="imagen-hero">
+    <div class="eyebrow">Un Regalo al Nacer</div>
+    <h1>El Mapa Energético de tu bebé</h1>
+  </div>
+
+  <div class="home-cuerpo">
+    <p class="saludo-bienvenida">Papá, Mamá, Bienvenidos.</p>
+    <p><strong>Antes de comenzar...</strong></p>
+    <p>Cada bebé llega a este mundo con una esencia única, una combinación irrepetible de talentos, fortalezas y aprendizajes que comenzarán a revelarse a lo largo de su vida.</p>
+    <p>El <strong>Mapa Energético</strong> interpreta la vibración de la <strong>fecha de nacimiento y del nombre</strong> para crear un mapa que ayuda a comprender mejor las cualidades con las que nace tu bebé, los dones que trae consigo, los caminos que favorecerán su crecimiento y brinda recomendaciones prácticas sobre cómo pueden acompañarlo de una manera más consciente.</p>
+    <p>En esta primera etapa podrán <strong>explorar diferentes combinaciones de nombres y comparar posibles fechas de nacimiento</strong>, observando cómo cada una modifica su Mapa Energético. Es una forma de acercarse, desde ahora, a la energía que acompañará a su bebé cuando llegue el gran día.</p>
+    <p>Este estudio no pretende predecir el futuro, ni determinar el destino. Más bien, es una brújula para acompañarlos a lo largo de los años, ayudándoles a comprender a su hij@ con una mirada más profunda, amorosa y consciente.</p>
+    <p>Cada alma llega con una misión única y con aprendizajes que forman parte de su propio camino.</p>
+    <p>Deseamos que el Mapa Energético de su bebé se convierta en una guía para descubrir, comprender y acompañar a su bebé mientras, paso a paso, va revelando la maravillosa persona que ha venido a SER.</p>
+    <p><strong>Cuando tu bebé nazca</strong>, podrás generar su <strong>Mapa Energético Definitivo</strong> utilizando su nombre y fecha de nacimiento reales. Como parte del BONUS, también crearás El Albúm de tu bebé, un recuerdo único que podrás descargar y que reúne su Mapa Energético, sus datos de nacimiento y espacios especiales para acompañar y conservar los momentos más importantes de su primer año de vida.</p>
+    <p class="cierre-bienvenida">Bienvenidos a este hermoso viaje.</p>
+
+    <hr class="firma-linea">
+
+    <button class="boton-primario" onclick="irAPantalla('home')">Continuar</button>
+  </div>
+</section>
+
+<!-- ============================================================
+     PANTALLA — HOME (menú explicado, con acceso a todos los módulos)
+     ============================================================ -->
+<section id="pantalla-home" class="pantalla oculto">
+  <div class="hero-home hero-home-compacto">
+    <div class="eyebrow">Un Regalo al Nacer</div>
+    <h1>El Mapa Energético de tu bebé</h1>
+  </div>
+
+  <div class="menu-home">
+    <div class="menu-item" onclick="irAPantalla('iniciar')">
+      <div class="menu-item-icono" data-icono="destello"></div>
+      <div class="menu-item-texto">
+        <h3>Iniciar</h3>
+        <p>Ingresa los datos de tu bebé.</p>
+      </div>
+    </div>
+
+    <div class="menu-item" onclick="irAPantalla('reporte-fecha')">
+      <div class="menu-item-icono" data-icono="fecha"></div>
+      <div class="menu-item-texto">
+        <h3>Mapa de Fecha</h3>
+        <p>Te brinda el análisis de la fecha tentativa de nacimiento y la energía que esa fecha impregnaría en tu bebé.</p>
+      </div>
+    </div>
+
+    <div class="menu-item" onclick="irAPantalla('cronos')">
+      <div class="menu-item-icono" data-icono="cronos"></div>
+      <div class="menu-item-texto">
+        <h3>Cronos</h3>
+        <p>Compara dos posibles fechas de nacimiento y descubre cómo cambia el Mapa Energético de tu bebé.</p>
+      </div>
+    </div>
+
+    <div class="menu-item" onclick="irAPantalla('reporte-nombre')">
+      <div class="menu-item-icono" data-icono="nombre"></div>
+      <div class="menu-item-texto">
+        <h3>Mapa de Nombre</h3>
+        <p>Explora diferentes combinaciones, cada nombre combinado con los apellidos tiene una energía que se irá reflejando en la personalidad de tu bebé. Explora la combinación de nombres que más les guste.</p>
+      </div>
+    </div>
+</div>
+</section>
+
+<!-- ============================================================
+     PANTALLA — INICIAR (formulario)
+     ============================================================ -->
+<section id="pantalla-iniciar" class="pantalla oculto">
+  <div class="encabezado-seccion">
+    <h2>Comencemos a Explorar</h2>
+    <p><strong>Ingresa un nombre y una posible fecha de nacimiento</strong> para descubrir cómo cambiaría el <strong>Mapa Energético</strong> de tu bebé. Puedes regresar todas las veces que quieras, probar diferentes combinaciones de nombres y comparar distintas fechas hasta encontrar las que más resuenen contigo.</p>
+  </div>
+
+  <form id="form-iniciar" novalidate onsubmit="return manejarEnvioIniciar(event)">
+    <div class="campo">
+      <label for="iniciar-nombre">Nombre</label>
+      <input type="text" id="iniciar-nombre" placeholder="Ej. María José">
+    </div>
+    <div class="campo">
+      <label for="iniciar-apellidos">Apellidos</label>
+      <input type="text" id="iniciar-apellidos" placeholder="Ej. Hernández Torres">
+    </div>
+    <div class="campo">
+      <label for="iniciar-fecha">Fecha de nacimiento</label>
+      <input type="date" id="iniciar-fecha">
+    </div>
+
+    <div id="error-iniciar" class="mensaje-error oculto">Por favor completa la información para realizar el mapa completo.</div>
+
+    <button type="submit" class="boton-primario">Explorar su Mapa Energético</button>
+  </form>
+</section>
+
+<!-- ============================================================
+     PANTALLA — CARGANDO (transición)
+     ============================================================ -->
+<section id="pantalla-cargando" class="pantalla-cargando oculto">
+  <svg class="estrella-girando" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="30" cy="8" r="4" fill="#C9A24B"/>
+    <circle cx="52" cy="30" r="3" fill="#D98B94"/>
+    <circle cx="30" cy="52" r="4" fill="#C9A24B"/>
+    <circle cx="8" cy="30" r="3" fill="#D98B94"/>
+    <circle cx="30" cy="30" r="2" fill="#241F3D"/>
+  </svg>
+  <p id="texto-cargando">Descifrando el Mapa Energético de tu bebé...</p>
+</section>
+
+
+<!-- ============================================================
+     PANTALLA — CRONOS
+     ============================================================ -->
+<section id="pantalla-cronos" class="pantalla oculto">
+  <div class="encabezado-seccion">
+    <div class="eyebrow">Cronos</div>
+    <h2>¿Cuál fecha elegir?</h2>
+    <p class="nota-suave">La mejor fecha siempre es la que elija naturalmente tu bebé para nacer.</p>
+    <p>Cronos te ayuda cuando hay más de una fecha posible de nacimiento, como es el caso de una cesárea programada.</p>
+  </div>
+
+  <div class="nota-cronos">Ingresa las dos fechas que quieres comparar. Verás lado a lado la energía que representa cada una.</div>
+
+  <form id="form-cronos" novalidate onsubmit="return manejarEnvioCronos(event)">
+    <div class="campo-fila">
+      <div class="campo">
+        <label for="cronos-fecha-a">Fecha opción A</label>
+        <input type="date" id="cronos-fecha-a">
+      </div>
+      <div class="campo">
+        <label for="cronos-fecha-b">Fecha opción B</label>
+        <input type="date" id="cronos-fecha-b">
+      </div>
+    </div>
+    <div id="error-cronos" class="mensaje-error oculto">Por favor completa la información para realizar el análisis completo.</div>
+    <button type="submit" class="boton-primario">Comparar energías</button>
+  </form>
+
+  <div id="resultado-cronos" class="resultado-cronos-espaciado"></div>
+</section>
+
+<!-- ============================================================
+     PANTALLA — REPORTE DE FECHA
+     ============================================================ -->
+<section id="pantalla-reporte-fecha" class="pantalla oculto">
+  <div id="reporte-fecha-contenido"></div>
+</section>
+
+<!-- ============================================================
+     PANTALLA — REPORTE DE NOMBRE
+     ============================================================ -->
+<section id="pantalla-reporte-nombre" class="pantalla oculto">
+  <div id="reporte-nombre-contenido"></div>
+</section>
+
+<!-- ============================================================
+     PANTALLA — RESUMEN
+     ============================================================ -->
+<section id="pantalla-resumen" class="pantalla oculto">
+  <div id="resumen-contenido"></div>
+</section>
+
+
+<!-- ============================================================
+     NAV INFERIOR FIJO (4 iconos, sin texto)
+     ============================================================ -->
+<nav class="nav-inferior">
+  <button class="nav-boton" data-nav="home" onclick="irAPantalla('home')" aria-label="Home">
+    <span class="nav-icono" data-icono="home"></span>
+  </button>
+  <button class="nav-boton" data-nav="reporte-fecha" onclick="irAPantalla('reporte-fecha')" aria-label="Reporte de Fecha">
+    <span class="nav-icono" data-icono="fecha"></span>
+  </button>
+  <button class="nav-boton" data-nav="cronos" onclick="irAPantalla('cronos')" aria-label="Cronos">
+    <span class="nav-icono" data-icono="cronos"></span>
+  </button>
+  <button class="nav-boton" data-nav="reporte-nombre" onclick="irAPantalla('reporte-nombre')" aria-label="Reporte de Nombre">
+    <span class="nav-icono" data-icono="nombre"></span>
+  </button>
+</nav>
+
+<script src="core.js"></script>
+<script src="biblioteca/fecha-estructura.js"></script>
+<script src="biblioteca/fecha-1.js"></script>
+<script src="biblioteca/fecha-2.js"></script>
+<script src="biblioteca/fecha-3.js"></script>
+<script src="biblioteca/fecha-4.js"></script>
+<script src="biblioteca/fecha-5.js"></script>
+<script src="biblioteca/fecha-6.js"></script>
+<script src="biblioteca/fecha-7.js"></script>
+<script src="biblioteca/fecha-8.js"></script>
+<script src="biblioteca/fecha-9.js"></script>
+<script src="biblioteca/fecha-10.js"></script>
+<script src="biblioteca/fecha-11.js"></script>
+<script src="biblioteca/fecha-especiales.js"></script>
+<script src="biblioteca/nombre.js"></script>
+<script src="biblioteca/astrologia.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
